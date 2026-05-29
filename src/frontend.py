@@ -25,7 +25,7 @@ st.markdown("---")
 # Predict Button
 if st.button("🚀 Predict Energy", use_container_width=True):
     # API (Waiter) ko order de rahe hain
-    api_url = "http://127.0.0.1:8000/predict"
+    api_url = "https://energy-mlops-system.onrender.com/predict"
     payload = {
         "temperature": temp,
         "humidity": humidity,
