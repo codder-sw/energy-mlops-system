@@ -1,0 +1,45 @@
+# ⚡ End-to-End MLOps: AI Energy Consumption Predictor
+
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-FF4B4B.svg)
+![Render](https://img.shields.io/badge/Deployed%20on-Render-black.svg)
+
+## 📌 Project Overview
+This project is a complete, production-ready Machine Learning pipeline designed to predict daily energy consumption based on weather data (Temperature, Humidity) and calendar events (Weekends/Months). 
+
+Unlike a standard Jupyter Notebook project, this application is built using a **Microservices Architecture**. It separates the Machine Learning model, the Backend API, and the Frontend UI into independent, scalable components.
+
+### 🌐 Live Application Links
+* **Frontend (Streamlit):** [Insert your Streamlit Link Here]
+* **Backend API (FastAPI):** [Insert your Render Link Here]/docs
+
+---
+
+## 🏗️ Architecture & Tech Stack
+The system is divided into 4 main layers:
+1. **Model Layer (XGBoost):** Trained to predict energy usage and serialized (`.pkl`) alongside a StandardScaler for real-time inference.
+2. **Backend Layer (FastAPI & Uvicorn):** A RESTful API hosted on Render Cloud that loads the serialized models and serves predictions via a `/predict` endpoint.
+3. **Frontend Layer (Streamlit):** An interactive UI hosted on Streamlit Community Cloud that sends user inputs to the backend API via HTTP requests.
+4. **CI/CD Layer (Git/GitHub):** Automated deployment pipeline where pushing to the `main` branch triggers live updates on both cloud servers.
+
+---
+
+## 📂 Project Structure
+```text
+energy-mlops-system/
+│
+├── data/                       # Raw and processed datasets
+├── models/                     # Pickled ML models (xgboost_model.pkl, scaler.pkl)
+├── notebooks/                  # Jupyter notebooks for EDA and model experimentation
+├── src/                        # Main application source code
+│   ├── data_ingestion.py       # Loads data safely
+│   ├── data_preprocessing.py   # Scales features and handles splits
+│   ├── model_training.py       # Trains XGBoost and evaluates metrics
+│   ├── app.py                  # FastAPI server (Backend)
+│   └── frontend.py             # Streamlit web interface (Frontend)
+│
+├── requirements.txt            # Python dependencies
+├── README.md                   # Project documentation
+└── .gitignore                  # Ignored files/folders
